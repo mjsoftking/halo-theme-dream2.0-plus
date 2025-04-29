@@ -10,10 +10,22 @@
     </th:block>
     <th:block th:replace="~{gateway_fragments/common::basicStaticResources}"></th:block>
     <style th:inline="css">
-        body {
-            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? 'background: url("' + theme.config.page_config.background_auth_page + '") center 0 no-repeat;' : ''})]
-            background-size: cover !important;
+        .signup-notice-content,
+        .returntosite-content,
+        .login-notice-content,
+        .language-switcher > label {
+            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? '--color-text: #fff;' : ''})]
         }
+
+        .language-switcher select {
+            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? 'background-color: white !important;' : ''})]
+        }
+
+        .signup-notice-content a,
+        .login-notice-content a {
+            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? ('color: '+theme.config.page_config.background_auth_page_a_color+' !important;') : ''})]
+        }
+
         body::before {
             content: "";
             position: fixed;
@@ -21,7 +33,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? 'background: url("' + theme.config.page_config.background_auth_page + '") center 0 no-repeat;' : ''})]
+            background-size: cover !important;
             z-index: -1;
         }
     </style>

@@ -1100,8 +1100,14 @@ spec:
               help: '搜索页面-搜索结果最大显示数量，搜索表单、热门文章风格有效。'
         - $formkit: attachment
           name: background_auth_page
-          label: '认证页面 背景图'
+          label: '认证页面-背景图'
           placeholder: '请输入/选择图片路径'
+        - $formkit: color
+          name: background_auth_page_a_color
+          label: '认证页面-立即登录、立即注册的颜色'
+          validation: required
+          help: 认证页面-立即登录、立即注册的颜色，用于和图片背景色区分。
+          value: '#50bfff'
     - group: enhance
       label: '增强功能'
       formSchema:
