@@ -1,0 +1,32 @@
+<!doctype html>
+<html th:lang="${#locale.toLanguageTag}" th:fragment="layout (title,head,body)" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+    <title th:text="${title}"></title>
+    <th:block th:if="${head != null}">
+        <th:block th:replace="${head}"/>
+    </th:block>
+    <th:block th:replace="~{gateway_fragments/common::basicStaticResources}"></th:block>
+    <style th:inline="css">
+        body {
+            [(${(!#strings.isEmpty(theme.config.page_config.background_auth_page)) ? 'background: url("' + theme.config.page_config.background_auth_page + '") center 0 no-repeat;' : ''})]
+            background-size: cover !important;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<th:block th:replace="${body}"/>
+</body>
+</html>

@@ -1098,6 +1098,10 @@ spec:
               value: 10
               height: 45px
               help: '搜索页面-搜索结果最大显示数量，搜索表单、热门文章风格有效。'
+        - $formkit: attachment
+          name: background_auth_page
+          label: '认证页面 背景图'
+          placeholder: '请输入/选择图片路径'
     - group: enhance
       label: '增强功能'
       formSchema:
